@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: WarehouseMonitoringApp
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: testcontainers
+    password: testcontainers
+
+warehouses:
+  - name: warehouse1
+    ip: 127.0.0.1
+    sensors:
+      - type: temperature
+        port: 3344
+      - type: humidity
+        port: 3355
+
+  - name: warehouse2
+    ip: 127.0.0.1
+    sensors:
+      - type: temperature
+        port: 3345
+      - type: humidity
+        port: 3346
+      - type: humidity
+        port: 3367
+
+sensor.type.alarm.thresholds:
+  - type: temperature
+    value : 25
+  - type: humidity
+    value: 70
